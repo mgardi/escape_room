@@ -17,32 +17,34 @@ application.secret_key = 'cC1YCIWOj9GgWspgNEo2'
 
 branding = {
     "gpt" : "Girls-Power-Tech_Lockup---Large.png",
-    "tacc" : "esacpe_room_tacc_branding.png"
+    "tacc" : "esacpe_room_tacc_branding.png",
+    "cisco": "Cisco_Logo_no_TM_Indigo_Blue-RGB_31px.png"
 }
 
-current_event = 'tacc'
+current_event = 'cisco'
 
 answer_dict = {
-    "othersme":
-        {"question": "What city were you born in?",
-         "answer": "chicago",
-         "place_holder": "Enter City of Birth",
-         "solution": "othersme-ciphertext.png"},
-    "own":
-        {"question": "What was the name of your first pet?",
-         "answer": "plumcot",
-         "place_holder": "Enter Name of Pet",
-         "solution": "own-ciphertext.png"},
-    "backup":
-        {"question": "What was the make and model of your first car?",
-         "answer": "Toyota Rav4",
-         "place_holder": "Enter Car Model",
-         "solution": "backup-ciphertext.png"},
-    "passwords":
-        {"question": "What is your favorite food?",
-         "answer": "potato",
-         "place_holder": "Enter Food",
-         "solution": "passwords-ciphertext.png"},
+    "doubt":
+        {"question": "63% of confirmed data breaches leverage a weak, default, or stolen __________.",
+         "answer": "password",
+         "place_holder": "Enter Answer",
+         "solution": "cipher-key1.png"}
+    # ,
+    # "own":
+    #     {"question": "What was the name of your first pet?",
+    #      "answer": "plumcot",
+    #      "place_holder": "Enter Name of Pet",
+    #      "solution": "own-ciphertext.png"},
+    # "backup":
+    #     {"question": "What was the make and model of your first car?",
+    #      "answer": "Toyota Rav4",
+    #      "place_holder": "Enter Car Model",
+    #      "solution": "backup-ciphertext.png"},
+    # "passwords":
+    #     {"question": "What is your favorite food?",
+    #      "answer": "potato",
+    #      "place_holder": "Enter Food",
+    #      "solution": "passwords-ciphertext.png"},
 }
 
 
