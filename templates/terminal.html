@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% import 'macros.html' as macros with context%} 
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="col-md-4 col-md-offset-4" style="background-image:url(static/images/terminal.png);height: 500;width: 700;">
+    <table>
+    <tr style="height: 200px;"></tr>
+    <tr>
+    <td style="width: 90px;"></td>
+    <td>
+    <div align="left">
+        <h3>{{ question }}</h3>
+        {%  if feedback %}
+            <h3>{{ feedback }}</h3>
+        {% endif %}
+    </div>
+
+    <hr>
+
+    <form method="post" id="answer_post" name="answer_post">
+
+        {{ form.hidden_tag() }}
+
+        {{ macros.render_field(form.answer, placeholder=place_holder, type='answer', label_visible=false) }}
+
+        <div align="left"><button type="submit" class="btn btn-primary">Enter</button></div>
+    </form>
+    </td>
+    </tr>
+    </table>
+
+<br>
+<br>
+    <div align="center">
+      <p>This exercise is not a real attack. It is being used for cybersecurity awareness only</p>
+    </div>
+</div>
+
+{% endblock %}  
