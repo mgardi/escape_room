@@ -5,16 +5,17 @@
 <br>
 <br>
 <br>
-<div class="col-md-4 col-md-offset-4" style="background-image:url(static/images/terminal.png);height: 500;width: 700;">
+<div class="col-md-4 col-md-offset-4" style="background-image:url(static/images/terminal.png);height: 500;width: 700; color: azure;">
     <table>
     <tr style="height: 200px;"></tr>
     <tr>
     <td style="width: 90px;"></td>
     <td>
-    <div align="left">
-        <h3>{{ question }}</h3>
+    <div align="left" style="color: azure;">
+        <h2>{{ question }}</h2>
         {%  if feedback %}
-            <h3>{{ feedback }}</h3>
+            <br>
+            <h2>{{ feedback }}</h2>
         {% endif %}
     </div>
 
