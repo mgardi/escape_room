@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% import 'macros.html' as macros %} 
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="col-md-4 col-md-offset-4" style="background-color: beige;">
+    
+    <hr>
+    <div align="center">
+        <h2>Welcome to KeyExtractor</h2>
+        <div align="center">
+            {% if image %}
+            <img src="{{ image }}" alt="KeyExtractorImage" height="100 px">
+            {% endif %}
+        </div>
+    </div>
+
+    <hr>
+
+    <div align="center">
+        {% for question in questions%}
+        <h3>{{ question }}</h3>
+        {% endfor %}
+        {%  if feedback %}
+            <h3>{{ feedback }}</h3>
+        {% endif %}
+    </div>
+
+    <hr>
+
+    <div align="center">
+        <table>
+        <tr>
+        {% for form in forms %}
+        {% if not "first" in form %}
+        <td style="width: 10px;">
+        </td>
+        {% endif %}
+        <td>
+        <form method="post" id="answer_post" name="answer_post">
+            {{ form.hidden_tag() }}
+            <button type="submit" class="{{ form.html_class }}">{{ form.action.label }}</button>
+        </form>
+        </td>
+        {% endfor %}
+        </tr>
+        </table>
+    </div>
+
+<br>
+<br>
+    <div align="center">
+      <p>This activity is not a real attack. It is for cybersecurity awareness only</p>
+    </div>
+</div>
+
+{% endblock %}  

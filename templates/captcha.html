@@ -1,14 +1,16 @@
 {% extends "base.html" %} {% import 'macros.html' as macros %} 
 {% block content %}
-
+<div class="col-md-4 col-md-offset-4" align="center">
+    <img src="static/images/captchaheader.png" alt="Are you Human?">
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="col-md-4 col-md-offset-4">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <hr>
     <div align="center">
         <h2>{{ title }}</h2>
@@ -18,14 +20,18 @@
     </div>
 
     <hr>
-
+    {% if image %}
     <div align="center">
-        <h3>{{ question }}</h3>
+        <img src="{{ image['src'] }}" alt="{{ image['alt'] }}">
+    </div>
+    {% endif %}
+    <div align="center">
+        <h2>{{ question }}</h2>
+        <h2 style="font-family: 'Lucida Console', Courier, monospace;letter-spacing: 0.4em;">{{ word_hint }}</h2>
         {%  if feedback %}
             <h3>{{ feedback }}</h3>
         {% endif %}
     </div>
-
     <hr>
 
     <form method="post" id="answer_post" name="answer_post">
