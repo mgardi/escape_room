@@ -39,62 +39,76 @@ seq_q_and_a_ids = [
     "6Cj8li3wYizzmOzz9K77YO3UPDqnstUZ",
     "Txsh2IT77rBfEDztbfdJpFpnJhoxmY5l",
     "bKwvTRUbL5r9bHL0TvS34Ez1EWapE2pn",
-    "1Wi5OoFrA5wyEP4OqczIyobIZbkTWlZk"
+    "1Wi5OoFrA5wyEP4OqczIyobIZbkTWlZk",
+    "0XxN10EjtXLk0iKn40j85E3WDROPjXAH",
 ]
 captcha_ids = [
     "6@sUmx*g^Jx2SJfolyyQwcLmJXESYb2H",
-    "AN43DnJd7Ot9FQ0vSsKjNGaE4mHaGPFz"
+    "AN43DnJd7Ot9FQ0vSsKjNGaE4mHaGPFz",
+    "3nP4Cg4nct4oX19xjMOXWRUYkjLGPHQ5"
 ]
 
 sec_q_and_as = {
     seq_q_and_a_ids[0]: 
         {"title": "Please answer this security question to verify identity for",
-         "question": "What city were you born in?",
-         "answer": "chicago",
-         "place_holder": "Enter City of Birth",
+         "question": "What hobby are you doing now most during these COVID-19 times?",
+         "answer": "cooking and baking",
+         "place_holder": "Enter rygrange COVID-19 hobby here",
          "next_id": seq_q_and_a_ids[1]},
     seq_q_and_a_ids[1]:
         {"title": "Please answer this security question to verify identity for",
-         "question": "What city were you born in?",
-         "answer": "chicago",
-         "place_holder": "Enter City of Birth",
+         "question": "What is the most common delivery method for viruses? ",
+         "answer": ["email attachments", "email", "emails"],
+         "place_holder": "Enter answer here",
          "next_id": seq_q_and_a_ids[2]},
     seq_q_and_a_ids[2]:
         {"title": "Please answer this security question to verify identity for",
-         "question": "What city were you born in?",
-         "answer": "chicago",
+         "question": "63% of confirmed data breaches leverage a weak, default, or stolen _____. ",
+         "answer": "passwords",
+         "place_holder": "Enter answer here",
          "next_id": page_names["terminal"]},
     seq_q_and_a_ids[3]:
         {"title": "Alright let's answer some security questions to verify you should be allowed to extract the key",
          "question": "Cisco was originated at what university campus?",
          "answer": ["stanford university", "stanford"],
-         "place_holder": "Enter City of Birth",
+         "place_holder": "Enter Cisco's origin location",
          "next_id": seq_q_and_a_ids[4]},
     seq_q_and_a_ids[4]:
-        {"title": "Alright let's answer some security questions to verify you should be allowed to extract the key",
-         "question": "Cisco was originated at what university campus?",
-         "answer": ["stanford university", "stanford"],
-         "place_holder": "Enter City of Birth",
+        {"title": "That could have just been a lucky guess. Here's another",
+         "question": "------------ is Cisco’s fastest growing business unit ",
+         "answer": ["cybersecurity", "cyber-security"],
+         "place_holder": "Enter fastest growing BU",
+         "next_id": seq_q_and_a_ids[5]}, 
+    seq_q_and_a_ids[5]:
+        {"title": "Hmmmm you are doing pretty well maybe I should let you have the key. Here's one more question.",
+         "question": "Cisco’s logo is based off of what (famous structure)?",
+         "answer": ["san francisco bridge", "sf bridge", "golden gate bridge", "golden gate"],
+         "place_holder": "Enter what the logo is based off of",
          "next_id": captcha_ids[0]},
 }
 
 captcha_dict = {
     captcha_ids[0]:
-        {"question": "What is this person attempting to draw?",
+        {"question": "Verify you are human. What is this person attempting to draw?",
          "word_hint": "____o _o_o",
          "answer": "cisco logo",
-         "place_holder": "Enter City of Birth",
-         "solution": "othersme-ciphertext.png",
+         "place_holder": "Enter answer here if human",
          "image": {"src": images_folder + "cisco_draw.gif", "alt": "Drawing of bars. One tall surrounded by two short"},
          "next_id": captcha_ids[1]},
          
     captcha_ids[1]:
         {"question": "What is this person attempting to draw?",
-         "word_hint": "____o _o_o",
-         "answer": "cisco logo",
-         "place_holder": "Enter Name of Pet",
-         "solution": "own-ciphertext.png",
-         "image": {"src": images_folder + "cisco_draw.gif", "alt": "Drawing of bars. One tall surrounded by two short"},
+         "word_hint": "____",
+         "answer": "wifi",
+         "place_holder": "Enter answer here if human",
+         "image": {"src": images_folder + "guess_me2.gif", "alt": "Drawing of concentric arcs above a central dot"},
+         "next_id": captcha_ids[2]},
+    captcha_ids[2]:
+        {"question": "What is this piece of equipment?",
+         "word_hint": "______",
+         "answer": "router",
+         "place_holder": "Enter answer here if human",
+         "image": {"src": images_folder + "whatami.jpg", "alt": "Drawing of concentric arcs above a central dot"},
          "next_id": page_names["key_extracted"]}
 }
 terminal_commands = {
@@ -124,7 +138,7 @@ terminal2_commands = {
     "./findfile.bash": "Try command again using the following format ./findfile.bash <location details>",
     "./findfile.bash 10868": "Found the file at: '" + file_location + "'. It is encrypted. Use ./getkey.bash to export the key and ./decryptfile.bash to decrypt it with the key",
     "./getkey.bash": "",
-    "./getlocationhint.bash": "the number of protruding rocks in front of Cisco Building 10 San Jose + the number of flag poles around the entrance of building 10 + the number of rectangular bricks acting as rays in the sun circle in front of Cisco RTP building 5 + number on the blue awning on the front of Cisco Knoxville Building 1. Use ./findfile <value> to get the secret file location",
+    "./getlocationhint.bash": "The number of protruding rocks in front of Cisco Building 10 San Jose + the number of flag poles around the entrance of building 10 + the number of rectangular bricks acting as rays in the sun circle in front of Cisco RTP building 5 + number on the blue awning on the front of Cisco Knoxville Building 1. Use ./findfile <value> to get the secret file location",
     final_command: "",
     "__invalid__": "Invalid Command",
 }
@@ -159,7 +173,7 @@ def security_questions(id):
     form = EnterSecAnswer(request.form)
     title = sec_q_and_as[id]["title"]
     question = sec_q_and_as[id]["question"]
-    place_holder = "Enter answer here"
+    place_holder = sec_q_and_as[id]["place_holder"]
     feedback = None
     if request.method == 'POST' and form.validate():
         answer = form.answer.data.lower()
@@ -184,7 +198,7 @@ def terminal():
     html_template = 'terminal.html'
     form = EnterSecAnswer(request.form)
     question = "Ready for input"
-    place_holder = "Enter answer here"
+    place_holder = ""
     image = None
     feedback = None
     if request.method == 'POST' and form.validate():
@@ -202,8 +216,8 @@ def terminal():
 def terminal2():
     html_template = 'terminal.html'
     form = EnterSecAnswer(request.form)
-    question = "Ready for input"
-    place_holder = "Enter answer here"
+    question = "Inside folder attackerstuff. Ready for input"
+    place_holder = ""
     image = None
     feedback = None
     if request.method == 'POST' and form.validate():
