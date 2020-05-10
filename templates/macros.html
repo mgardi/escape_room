@@ -14,7 +14,7 @@
         {% if (field.type != 'HiddenField' or field.type !='CSRFTokenField') and label_visible %}
             <label for="{{ field.id }}" class="control-label">{{ field.label }}</label>
         {% endif %}
-        {% if field.type == 'TextField' %}
+        {% if field.type == 'TextField' or field.type == 'PasswordField' or field.type == 'HiddenField' %}
             {{ field(class_='form-control', **kwargs) }}
         {% endif %}
         {% if field.errors %}

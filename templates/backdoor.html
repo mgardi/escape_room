@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% import 'macros.html' as macros with context%} 
+{% block content %}
+<br>
+<br>
+<br>
+<div class="col-md-4 col-md-offset-4" style="background-image:url(static/images/wtf-backdoor.jpg);">
+
+      <div align="center">
+        <h2>Shhhh don't tell anyone about this backdoor</h2>
+        {% if image %}
+        <img src="{{ image }}" alt="Shhhhh Image" height="300 px">
+        {% endif %}
+      </div>
+
+    <hr>
+
+    <div align="center">
+        <h2>Please User and Password to login</h2>
+    </div>
+
+    <hr>
+
+    <div align="center">
+        <h3>{{ question }}</h3>
+        {%  if feedback %}
+            <h3>{{ feedback }}</h3>
+        {% endif %}
+    </div>
+
+    <hr>
+
+    <form method="post" id="login_post" name="login_post">
+
+        {{ form.hidden_tag() }}
+
+        {{ macros.render_field(form.user, label_visible=true, placeholder=placeholder) }}
+        {{ macros.render_field(form.password, label_visible=true, placeholder=placeholder) }}
+
+        <div align="center"><button type="submit" class="btn btn-primary">Submit</button></div>
+
+    </form>
+
+<br>
+<br>
+    <div align="center">
+      <p>This exercise is not a real attack. It is being used for cybersecurity awareness only</p>
+    </div>
+</div>
+
+{% endblock %}  
