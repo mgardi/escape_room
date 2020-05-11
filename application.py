@@ -8,7 +8,7 @@ Step-by-step tutorial: https://medium.com/@rodkey/deploying-a-flask-application-
 '''
 
 from flask import Flask, render_template, request, redirect, url_for
-from application.forms import EnterSecAnswer, EnterLogin, AcceptButtonForm, DeclineButtonForm, ContinueButtonForm
+from application.forms import EnterSecAnswer, EnterLogin, AcceptOrDeclineForm, ContinueButtonForm
 
 # Elastic Beanstalk initalization
 application = Flask(__name__)
@@ -243,15 +243,8 @@ def extract_key(times):
         times = int(times)
     except:
         return render_template('call_the_cops.html')
-
-
     html_template = 'extract_key.html'
-    accept_form = AcceptButtonForm(request.form)
-    accept_form.html_class = "btn btn-success"
-    form = accept_form
-    decline_form = DeclineButtonForm(request.form)
-    decline_form.html_class = "btn btn-secondary"
-    forms = [accept_form, decline_form]
+    form = AcceptOrDeclineForm(request.form)
     questions = """This operation will export the key from storage.
     KeyExtractor is not liable for any loss of this key after export.""".splitlines()
     question_suffixes = ["Are you sure you want to continue?", "Are you very sure?", "How sure are you? Is this really what you want?"]
@@ -260,15 +253,14 @@ def extract_key(times):
     questions.append(question_suffixes[times])
     image = images_folder + "keyextractor.png"
     feedback = None
-    forms[0].first = True
-    print(form.action.data)
     if request.method == 'POST' and form.validate():
-        answer = form.action.data
-        if answer == "accept":
+        if form.accept.data:
             return redirect(url_for("extract_key", times=times + 1))
-        else:
+        elif form.decline.data:
             return redirect(url_for("terminal2"))
-    return render_template(html_template, image=image, forms=forms, questions=questions, feedback=feedback)
+        else:
+            return render_template('call_the_cops.html')
+    return render_template(html_template, image=image, form=form, questions=questions, feedback=feedback)
 
 @application.route('/captcha<id>', methods=['GET', 'POST'])
 def captcha(id):
@@ -310,8 +302,7 @@ def key_extracted():
     feedback = None
 
     if request.method == 'POST' and form.validate():
-        data_entered = form.action.data
-        if data_entered.lower() == "continue":
+        if form.action.data:
            return redirect(url_for("terminal2"))
         feedback = ':-( What are you trying to ruin now?'
 

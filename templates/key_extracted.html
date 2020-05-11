@@ -37,10 +37,12 @@
         <table>
         <tr>
         <td>
+        <div>
         <form method="post" id="answer_post" name="answer_post">
             {{ form.hidden_tag() }}
-            <button type="submit" class="{{ form.html_class }}">{{ form.action.label }}</button>
+            {{ macros.render_field(form.action, class="btn btn-primary", label_visible=false) }}
         </form>
+        </div>
         </td>
         </tr>
         </table>

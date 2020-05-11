@@ -33,22 +33,23 @@
     <hr>
 
     <div align="center">
-        <table>
-        <tr>
-        {% for form in forms %}
-        {% if not "first" in form %}
-        <td style="width: 10px;">
-        </td>
-        {% endif %}
-        <td>
+        <div>
         <form method="post" id="answer_post" name="answer_post">
             {{ form.hidden_tag() }}
-            <button type="submit" class="{{ form.html_class }}">{{ form.action.label }}</button>
+            <table>
+            <tr>
+            <td>
+            {{ macros.render_field(form.accept, class="btn btn-success", label_visible=false) }}
+            </td>
+            <td style="width: 10px;">
+            </td>
+            <td>
+            {{ macros.render_field(form.decline, class="btn btn-secondary", label_visible=false) }}
+            </td>
+            </tr>
+            </table>
         </form>
-        </td>
-        {% endfor %}
-        </tr>
-        </table>
+        </div>
     </div>
 
 <br>
