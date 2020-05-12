@@ -57,7 +57,7 @@ sec_q_and_as = {
          "next_id": seq_q_and_a_ids[1]},
     seq_q_and_a_ids[1]:
         {"title": "Please answer this security question to verify identity for",
-         "question": "What is the most common delivery method for viruses? ",
+         "question": "What is the most common delivery method for computer viruses? ",
          "answer": ["email attachments", "email", "emails"],
          "place_holder": "Enter answer here",
          "next_id": seq_q_and_a_ids[2]},

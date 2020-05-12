@@ -15,7 +15,10 @@
         <h2>{{ question }}</h2>
         {%  if feedback %}
             <br>
-            <h2>{{ feedback }}</h2>
+            {% for line in feedback.splitlines() %}
+            <h2>{{ line }}</h2>
+            {% endfor %}
+
         {% endif %}
     </div>
 
